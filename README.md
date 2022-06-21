@@ -29,6 +29,8 @@ Move into project directory
 ## Available Scripts
 
 `ruby person.rb`
+`ruby student.rb`
+`ruby teacher.rb`
 
 
 ## Author
