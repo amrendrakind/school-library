@@ -2,7 +2,12 @@ def main
   puts('-----------------------------------')
   puts "\nWelcome to OOP School Library App!!\n\n"
   puts('-----------------------------------')
-  menu
+
+  begin
+    menu
+    input =  user_input 
+  end while input > 0 && input < 8
+
 end
 
 def menu
@@ -12,9 +17,18 @@ def menu
   puts '3. Create a Person.'
   puts '4. Create a Book.'
   puts '5. Create a Rental.'
-  puts '6. List all rentals for a given person id.'
+  puts '6. List all entals for a given person id.'
   puts '7. Exit'
-  gets.chomp
+  
+end
+
+def user_input
+    input = gets.chomp.to_i
+    while input > 7 || input < 1
+        puts 'Please enter a valid option : '
+        input = gets.chomp.to_i
+    end
+    input
 end
 
 main
