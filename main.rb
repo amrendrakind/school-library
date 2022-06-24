@@ -3,11 +3,20 @@ def main
   puts "\nWelcome to OOP School Library App!!\n\n"
   puts('-----------------------------------')
 
-  begin
+  loop do
     menu
-    input =  user_input 
-  end while input > 0 && input < 8
-
+    input = user_input
+    case input
+    when 1 then puts 'Entered 1 '
+    when 2 then puts 'Entered 2 '
+    when 3 then puts 'Entered 3 '
+    when 4 then puts 'Entered 4 '
+    when 5 then puts 'Entered 5 '
+    when 6 then puts 'Entered 6 '
+    else break
+    end
+    break unless input.positive? && input < 8
+  end
 end
 
 def menu
@@ -19,16 +28,15 @@ def menu
   puts '5. Create a Rental.'
   puts '6. List all entals for a given person id.'
   puts '7. Exit'
-  
 end
 
 def user_input
+  input = gets.chomp.to_i
+  while input > 7 || input < 1
+    puts 'Please enter a valid option between 1 to 7: '
     input = gets.chomp.to_i
-    while input > 7 || input < 1
-        puts 'Please enter a valid option between 1 to 7: '
-        input = gets.chomp.to_i
-    end
-    input
+  end
+  input
 end
 
 main
