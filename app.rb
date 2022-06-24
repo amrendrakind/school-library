@@ -4,7 +4,6 @@ require './person'
 require './rental'
 require './student'
 require './teacher'
-require './decorator'
 
 class App
   def initialize
@@ -38,7 +37,8 @@ class App
     case person_type
     when 1
       print 'Has parent permission? [Y/N]: '
-      permission = CapitalizeDecorator.new(gets[0])
+      permission = gets[0] == ('y' or 'Y')
+      puts permission
       @persons << Student.new('Unkown', age, name, permission )
       puts "Person created successfully \n\n"
     when 2
