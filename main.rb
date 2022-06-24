@@ -1,4 +1,6 @@
+require './app'
 def main
+  app = App.new
   puts('-----------------------------------')
   puts "\nWelcome to OOP School Library App!!\n\n"
   puts('-----------------------------------')
@@ -7,12 +9,12 @@ def main
     menu
     input = user_input
     case input
-    when 1 then puts 'Entered 1 '
-    when 2 then puts 'Entered 2 '
-    when 3 then puts 'Entered 3 '
-    when 4 then puts 'Entered 4 '
-    when 5 then puts 'Entered 5 '
-    when 6 then puts 'Entered 6 '
+    when 1 then app.list_books
+    when 2 then app.list_people
+    when 3 then app.create_person
+    when 4 then app.create_book
+    when 5 then app.create_rental
+    when 6 then app.list_rentals
     else break
     end
     break unless input.positive? && input < 8

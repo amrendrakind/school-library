@@ -20,7 +20,7 @@ class App
     when 4 then create_book
     when 5 then create_rental
     when 6 then list_rentals
-    when 7 exit
+    when 7 then exit
     end
   end
 
