@@ -25,7 +25,7 @@ end
 def user_input
     input = gets.chomp.to_i
     while input > 7 || input < 1
-        puts 'Please enter a valid option : '
+        puts 'Please enter a valid option between 1 to 7: '
         input = gets.chomp.to_i
     end
     input
