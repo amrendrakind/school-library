@@ -1,7 +1,6 @@
 require './app'
 
-# Metrics/CyclomaticComplexity: Cyclomatic complexity
-def main
+def main # rubocop:disable Metrics/CyclomaticComplexity
   app = App.new
   puts('-----------------------------------')
   puts "\nWelcome to OOP School Library App!!\n\n"

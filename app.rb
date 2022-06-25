@@ -24,7 +24,7 @@ class App
     puts ''
   end
 
-  def create_person
+  def create_person # rubocop:disable Metrics/MethodLength
     puts 'Which type of person you wish to create'
     puts '1. Student'
     puts '2. Teacher'
