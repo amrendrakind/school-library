@@ -71,7 +71,7 @@ class App
     person_number = gets.chomp.to_i
     print 'Date: '
     date = gets.chomp
-    @rentals = Rental.new(date, @books[book_number], @persons[person_number])
+    @rentals << Rental.new(date, @books[book_number], @persons[person_number])
     puts "Rental created successfully \n\n"
   end
 
@@ -81,7 +81,7 @@ class App
     person_id = gets.chomp
     puts 'Rentals : '
     @rentals.each do |rent|
-      if rent.person.id == person_id
+      if rent.person.id.to_s == person_id.to_s
         puts "#{rent.class} #{rent.date} | Book: \"#{rent.book.title}\" rented by #{rent.person.name}"
       end
     end
