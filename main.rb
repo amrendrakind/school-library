@@ -1,4 +1,5 @@
 require './app'
+require 'pry'
 
 def main # rubocop:disable Metrics/CyclomaticComplexity
   app = App.new
@@ -32,9 +33,9 @@ def menu
   puts '6. List all entals for a given person id.'
   puts '7. Exit'
 end
-
+# binding.pry
 def user_input
-  input = gets.chomp.to_i
+  input = gets.chomp
   while input > 7 || input < 1
     puts 'Please enter a valid option between 1 to 7: '
     input = gets.chomp.to_i
