@@ -1,4 +1,6 @@
 require './app'
+
+# Metrics/CyclomaticComplexity: Cyclomatic complexity
 def main
   app = App.new
   puts('-----------------------------------')
