@@ -4,6 +4,9 @@ require './person'
 require './rental'
 require './student'
 require './teacher'
+require './write_file'
+require 'json'
+require './read_file'
 
 class App
   def initialize
@@ -39,8 +42,13 @@ class App
       print 'Has parent permission? [Y/N]: '
       permission = gets[0]
       permission = (permission == ('Y' || 'y'))
-      @persons << Student.new('Unkown', age, name, permission)
+      student = Student.new('Unkown', age, name, permission)
+      @persons << student
+      person1 = JSON.generate(student)
+      # person2 = JSON.parse(person1)
+      Write_File.new(person1)
       puts "Person created successfully \n\n"
+      Read_File.new()
     when 2
       print 'Specialization: '
       specialization = gets.chomp
