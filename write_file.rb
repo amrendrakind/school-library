@@ -14,8 +14,13 @@ class Write_File
                     end
      @rentals_json = if File.exist?('rentals.json')
                        File.open('rentals.json','a')
-                    else
+                    else 
                        File.open('rentals.json','w')
                     end
+    end
+
+    def books(title, author)
+        book_object = [title, author]
+        @books_json.write("#{book_object}")
     end
 end

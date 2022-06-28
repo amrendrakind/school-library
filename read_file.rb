@@ -10,7 +10,7 @@ class Read_File
         @person_json.each{|line| @person << JSON.parse(line)}
         @person_json.close
         @books_json.each{|line| @pbook << JSON.parse(line)}
-        @books_json.close        
+        @books_json.close   
         @rentals_json.each{|line| @rental << JSON.parse(line)}
         @rentals_json.close
     end
