@@ -1,7 +1,2 @@
-["Unkown",5,"A",true]["Unkown",5,"A",true]["Unkown",3,"A",true]["Unkown",3,"A",true]["Unkown",3,"B",true]["Unkown",1,"B",true]["Unknown",10,"B",false]["Unknown",12,"A",true]
-["Unknown",13,"B",true]
-
-["Unknown",1,"Q",true]
-["Unknown",2,"W",false]
-["Unknown",32,"Amar",true]
-["Unknown",34,"Jacob",false]
+{"classroom":"Math","age":1,"name":"A","parent_permission":false}
+{"classroom":"Science","age":0,"name":"A","parent_permission":true}

@@ -6,7 +6,7 @@ def main # rubocop:disable Metrics/CyclomaticComplexity
   app = App.new
   write_file = Write_File.new()
   puts('-----------------------------------')
-  puts "\nWelcome to OOP Schoo7l Library App!!\n\n"
+  puts "\nWelcome to OOP School Library App!!\n\n"
   puts('-----------------------------------')
 
   loop do
