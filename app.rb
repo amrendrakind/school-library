@@ -42,17 +42,16 @@ class App
       print 'Has parent permission? [Y/N]: '
       permission = gets[0]
       permission = (permission == ('Y' || 'y'))
-      student = Student.new('Unkown', age, name, permission)
+      student = Student.new('Unknown', age, name, permission)
       @persons << student
-      person1 = JSON.generate(student)
-      # person2 = JSON.parse(person1)
-      Write_File.new(person1)
+      Write_File.new().persons('Unknown', age, name, permission)
       puts "Person created successfully \n\n"
-      Read_File.new()
+
     when 2
       print 'Specialization: '
       specialization = gets.chomp
       @persons << Teacher.new(specialization, age, name)
+      Write_File.new().persons(specialization, age, name)
       puts "Person created successfully\n\n"
     end
   end
@@ -64,6 +63,7 @@ class App
     print 'Author: '
     author = gets.chomp
     @books << Book.new(title, author)
+    Write_File.new().books(title, author)
     puts "Book created successfully\n\n"
   end
 
@@ -80,6 +80,7 @@ class App
     print 'Date: '
     date = gets.chomp
     @rentals << Rental.new(date, @books[book_number], @persons[person_number])
+    Write_File.new().rentals(date, book_number, person_number)
     puts "Rental created successfully \n\n"
   end
 
