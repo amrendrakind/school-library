@@ -1,9 +1,12 @@
 require './app'
+require './write_file'
 
 def main # rubocop:disable Metrics/CyclomaticComplexity
+  system('cls')
   app = App.new
+  write_file = Write_File.new()
   puts('-----------------------------------')
-  puts "\nWelcome to OOP School Library App!!\n\n"
+  puts "\nWelcome to OOP Schoo7l Library App!!\n\n"
   puts('-----------------------------------')
 
   loop do
@@ -16,7 +19,9 @@ def main # rubocop:disable Metrics/CyclomaticComplexity
     when 4 then app.create_book
     when 5 then app.create_rental
     when 6 then app.list_rentals
-    else break
+    else 
+      write_file.close_file
+      break
     end
     break unless input.positive? && input < 8
   end

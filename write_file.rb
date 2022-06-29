@@ -35,4 +35,11 @@ class Write_File
         rental_object = JSON.generate([date, book_number, person_number])
         @rentals_json.write("#{rental_object}")
     end
+
+    def close_file
+      @persons_json.close
+      @books_json.close
+      @rentals_json.close
+    end
+
 end
