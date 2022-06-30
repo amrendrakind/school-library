@@ -52,14 +52,14 @@ class App
       permission = (permission == ('Y' || 'y'))
       student = Student.new(classroom, age, name, permission)
       @data.persons << student
-      @writer_file.persons(classroom, age, name, permission)
+      @writer_file.persons_student('Student', classroom, age, name, permission)
       puts "Person created successfully \n\n"
 
     when 2
       print 'Specialization: '
       specialization = gets.chomp
       @data.persons << Teacher.new(specialization, age, name)
-      @writer_file.persons(specialization, age, name)
+      @writer_file.persons_teacher('Teacher', specialization, age, name)
       puts "Person created successfully\n\n"
     end
   end
@@ -87,6 +87,8 @@ class App
     person_number = gets.chomp.to_i
     print 'Date: '
     date = gets.chomp
+    puts @data.books[book_number]
+    puts @data.persons[person_number]
     @data.rentals << Rental.new(date, @data.books[book_number], @data.persons[person_number])
     @writer_file.rentals(date, book_number, person_number)
     puts "Rental created successfully \n\n"
@@ -99,7 +101,7 @@ class App
     puts 'Rentals : '
     @data.rentals.each do |rent|
       if rent.person.id.to_s == person_id.to_s
-        puts "#{rent.class} #{rent.date} | Book: \"#{rent.book.title}\" rented by #{rent.person.name}"
+        puts "#{rent.class} #{rent.date} | Book: \ #{rent.book.title}\ rented by #{rent.person.name}"
       end
     end
   end

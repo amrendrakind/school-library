@@ -1,2 +1,2 @@
-{"classroom":"Math","age":1,"name":"A","parent_permission":false}
-{"classroom":"Science","age":0,"name":"A","parent_permission":true}
+{"type":"Student","classroom":"A","age":5,"name":"A","parent_permission":true}
+{"type":"Teacher","specialization":"Math","age":32,"name":"S"}

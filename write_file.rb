@@ -19,21 +19,25 @@ class Write_File
                     end
     end
 
-    def persons(classroom, age, name, permission)
-      
-        person_object = JSON.generate('classroom' => classroom,'age' => age,'name' => name, 'parent_permission' => permission)
-        @persons_json.write("#{person_object}\n")
+    def persons_student(type, classroom, age, name, permission)
+
+        student_object = JSON.generate('type' => type, 'classroom' => classroom,'age' => age,'name' => name, 'parent_permission' => permission)
+        @persons_json.write("#{student_object}\n")
    end
     
+   def persons_teacher (type, specialization, age, name)
+      teacher_object = JSON.generate('type' => type, 'specialization' => specialization,'age' => age,'name' => name)
+      @persons_json.write("#{teacher_object}\n")
+   end
+
     def books(title, author)
         book_object = JSON.generate({'title' => title,'author' => author})
         @books_json.write("#{book_object}\n")
     end
 
     def rentals(date, book_number, person_number)
-        rental_object = JSON.generate([date, book_number, person_number])
+        rental_object = JSON.generate('date' => date, 'book_number' => book_number, 'person_number' => person_number)
         @rentals_json.write("#{rental_object}\n")
-         # "{\"date\": #{self.date}, \"person_id\": \"#{self.person._id}\", \"name\": \"#{self.person._name}\", \"book_id\": \"#{self.book.id}\",\"book_title\": \"#{self.book.title}\", \"book_author\": \"#{self.book.author}\"}"
     end
 
     def close_file

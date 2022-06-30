@@ -29,9 +29,9 @@ class Read_File
 
     def create_person
         @persons.each do |person|
-            if person.class == 'Teacher'
-                @data.persons << Teacher.new(person[0], person[1], person[2])
-            else
+            if person['type'] == 'Teacher'
+                @data.persons << Teacher.new(person['specialization'], person['age'], person['name'])
+            else 
                 @data.persons << Student.new(person['classroom'], person['age'], person['name'], person['parent_permission'])
             end
         end
@@ -44,6 +44,9 @@ class Read_File
     end
 
     def create_rentals
-
-    end
+        @rentals.each do |rent|
+            puts rent
+            # @data.rentals << Rental.new(rent['date'], @books[rent['book_number']], @persons[rent['person_number']])
+        end
+    end 
 end
