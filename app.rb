@@ -65,14 +65,19 @@ class App
   end
 
   def create_book
+    book_parameters = book_input
+    @data.books << Book.new(book_parameters[0], book_parameters[1])
+    @writer_file.books(title, author)
+    puts "Book created successfully\n\n"
+  end
+
+  def book_input
     puts 'Create a book'
     print 'Title: '
     title = gets.chomp
     print 'Author: '
     author = gets.chomp
-    @data.books << Book.new(title, author)
-    @writer_file.books(title, author)
-    puts "Book created successfully\n\n"
+    [title, author]
   end
 
   def create_rental
