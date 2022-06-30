@@ -12,7 +12,7 @@ describe 'Book Tests' do
       end
     end
     context 'Validate stored book' do
-      library = Library.new  'books.json'
+      library = Library.new
       it 'accepts new books' do
         title='Designing for the Web'
         author='Mark Boulton'

@@ -4,8 +4,7 @@ require './data'
 class Library
     attr_accessor :files, :data
  
-    def initialize lib_file = false
-        @lib_file = lib_file
+    def initialize
         @files = @writer_file = WriteFile.new
         @data = Data.new
         begin
@@ -25,7 +24,13 @@ class Library
         end
     end
  
-    def save lib_file = false
-        
+    def add_student (classroom, age, name, parent_permission)
+        @files.persons_student('Student', classroom, age, name, parent_permission)
+    end
+ 
+    def get_student name
+        @data.persons.select do |person|
+                return person if person.name == name
+        end
     end
 end
