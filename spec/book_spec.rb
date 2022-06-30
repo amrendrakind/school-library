@@ -16,7 +16,7 @@ describe 'Book Tests' do
       it 'accepts new books' do
         title='Designing for the Web'
         author='Mark Boulton'
-        library.add_book( Book.new(title , author) )
+        library.add_book( title , author)
         library.get_book(title).should be_an_instance_of Book
     end
     end
