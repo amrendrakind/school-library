@@ -1,2 +1,4 @@
 {"type":"Student","classroom":"Full Stack Development","age":38,"name":"Amrendra K","parent_permission":true}
 {"type":"Teacher","specialization":"Computing","age":45,"name":"Elio"}
+{"type":"Student","classroom":"Computer","age":30,"name":"Hadi","parent_permission":true}
+{"type":"Teacher","specialization":"Reviewer","age":24,"name":"Hiro"}

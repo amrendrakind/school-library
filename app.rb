@@ -64,7 +64,7 @@ class App
     classroom = gets.chomp
     print 'Has parent permission? [Y/N]: '
     permission = gets[0]
-    permission = (permission..downcase == 'y')
+    permission = (permission.downcase == 'y')
     [classroom, age, name, permission]
   end
 
@@ -123,7 +123,7 @@ class App
     puts 'Rentals : '
     @data.rentals.each do |rent|
       if rent.person.id.to_s == person_id.to_s
-        puts "#{rent.class} #{rent.date} | Book: \ #{rent.book.title}\ rented by #{rent.person.name}"
+        puts "#{rent.class} #{rent.date} | Book: \"#{rent.book.title}\" rented by #{rent.person.name}"
       end
     end
   end
