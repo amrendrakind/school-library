@@ -4,7 +4,7 @@ require './write_file'
 def main # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity
   system('cls')
   app = App.new
-  write_file = Write_File.new
+  write_file = WriteFile.new
   puts('-----------------------------------')
   puts "\nWelcome to OOP School Library App!!\n\n"
   puts('-----------------------------------')
