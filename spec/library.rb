@@ -1,6 +1,9 @@
 require './write_file'
 require './read_file'
 require './data'
+require './book'
+require './person'
+
 class Library
     attr_accessor :files, :data
  
@@ -37,9 +40,21 @@ class Library
     def add_teacher (specialization, age, name)
         @files.persons_teacher('Teacher', specialization, age, name)
     end
+
     def get_teacher name
         @data.persons.select do |person|
                 return person if person.name == name
+        end
+    end
+
+    def add_rental (date, book_number, person_number)
+        @files.rentals(date, book_number, person_number)
+    end
+
+    def get_rental book_number #each_with_index { |book, index|
+        @data.rentals.each_with_index do |rental, index|
+            # puts rental.book
+                return rental.book if index == book_number
         end
     end
 end
