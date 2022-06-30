@@ -11,11 +11,12 @@ require './data'
 
 class App
   attr_reader :data
+
   def initialize
     @data = Data.new
-    @writer_file = Write_File.new
+    @writer_file = WriteFile.new
     begin
-      Read_File.new(@data).read_files
+      ReadFile.new(@data).read_files
     rescue Errno::ENOENT
       puts 'No data file found.'
     end
@@ -33,7 +34,7 @@ class App
     puts ''
   end
 
-  def create_person # rubocop:disable Metrics/MethodLength
+  def create_person
     puts 'Which type of person you wish to create'
     puts '1. Student'
     puts '2. Teacher'
@@ -44,7 +45,8 @@ class App
       student_parameters = student_input
       student = Student.new(student_parameters[0], student_parameters[1], student_parameters[2], student_parameters[3])
       @data.persons << student
-      @writer_file.persons_student('Student', student_parameters[0], student_parameters[1], student_parameters[2], student_parameters[3])
+      @writer_file.persons_student('Student', student_parameters[0], student_parameters[1], student_parameters[2],
+                                   student_parameters[3])
       puts "Person: Student created successfully \n\n"
 
     when 2
@@ -96,7 +98,8 @@ class App
 
   def create_rental
     rental_parameters = rental_input
-    @data.rentals << Rental.new(rental_parameters[0], @data.books[rental_parameters[1]], @data.persons[rental_parameters[2]])
+    @data.rentals << Rental.new(rental_parameters[0], @data.books[rental_parameters[1]],
+                                @data.persons[rental_parameters[2]])
     @writer_file.rentals(rental_parameters[0], rental_parameters[1], rental_parameters[2])
     puts "Rental created successfully \n\n"
   end
