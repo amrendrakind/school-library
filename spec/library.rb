@@ -33,4 +33,13 @@ class Library
                 return person if person.name == name
         end
     end
+
+    def add_teacher (specialization, age, name)
+        @files.persons_teacher('Teacher', specialization, age, name)
+    end
+    def get_teacher name
+        @data.persons.select do |person|
+                return person if person.name == name
+        end
+    end
 end
