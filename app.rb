@@ -39,29 +39,43 @@ class App
     puts '2. Teacher'
     print 'Enter selection: '
     person_type = gets.chomp.to_i
+    case person_type
+    when 1
+      student_parameters = student_input
+      student = Student.new(student_parameters[0], student_parameters[1], student_parameters[2], student_parameters[3])
+      @data.persons << student
+      @writer_file.persons_student('Student', student_parameters[0], student_parameters[1], student_parameters[2], student_parameters[3])
+      puts "Person: Student created successfully \n\n"
+
+    when 2
+      teacher_parameters = teacher_input
+      @data.persons << Teacher.new(teacher_parameters[0], teacher_parameters[1], teacher_parameters[2])
+      @writer_file.persons_teacher('Teacher', teacher_parameters[0], teacher_parameters[1], teacher_parameters[2])
+      puts "Person: Teacher created successfully\n\n"
+    end
+  end
+
+  def student_input
     print 'Name: '
     name = gets.chomp
     print 'Age : '
     age = gets.chomp.to_i
-    case person_type
-    when 1
-      print 'Classroom: '
-      classroom = gets.chomp
-      print 'Has parent permission? [Y/N]: '
-      permission = gets[0]
-      permission = (permission == ('Y' || 'y'))
-      student = Student.new(classroom, age, name, permission)
-      @data.persons << student
-      @writer_file.persons_student('Student', classroom, age, name, permission)
-      puts "Person created successfully \n\n"
+    print 'Classroom: '
+    classroom = gets.chomp
+    print 'Has parent permission? [Y/N]: '
+    permission = gets[0]
+    permission = (permission..downcase == 'y')
+    [classroom, age, name, permission]
+  end
 
-    when 2
-      print 'Specialization: '
-      specialization = gets.chomp
-      @data.persons << Teacher.new(specialization, age, name)
-      @writer_file.persons_teacher('Teacher', specialization, age, name)
-      puts "Person created successfully\n\n"
-    end
+  def teacher_input
+    print 'Name: '
+    name = gets.chomp
+    print 'Age : '
+    age = gets.chomp.to_i
+    print 'Specialization: '
+    specialization = gets.chomp
+    [specialization, age, name]
   end
 
   def create_book
@@ -81,7 +95,14 @@ class App
   end
 
   def create_rental
-    puts 'Create rental'
+    rental_parameters = rental_input
+    @data.rentals << Rental.new(rental_parameters[0], @data.books[rental_parameters[1]], @data.persons[rental_parameters[2]])
+    @writer_file.rentals(rental_parameters[0], rental_parameters[1], rental_parameters[2])
+    puts "Rental created successfully \n\n"
+  end
+
+  def rental_input
+    puts 'Create rentals:'
     puts 'Select a book from the following list by number'
     @data.books.each_with_index { |book, index| puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}" }
     book_number = gets.chomp.to_i
@@ -90,11 +111,9 @@ class App
       puts " #{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
     person_number = gets.chomp.to_i
-    print 'Date: '
+    print 'Enter Date: '
     date = gets.chomp
-    @data.rentals << Rental.new(date, @data.books[book_number], @data.persons[person_number])
-    @writer_file.rentals(date, book_number, person_number)
-    puts "Rental created successfully \n\n"
+    [date, book_number, person_number]
   end
 
   def list_rentals
