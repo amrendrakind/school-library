@@ -39,6 +39,12 @@ Move into project directory
 - Twitter: [@amrendrak_](https://twitter.com/amrendrak_)
 - LinkedIn: [amrendraakumar](https://linkedin.com/in/amrendraakumar)
 
+👤 **Elio Cortés**
+
+- GitHub: [@NeckerFree](https://github.com/NeckerFree)
+- Twitter: [@ElioCortesM](https://twitter.com/ElioCortesM)
+- LinkedIn: [elionelsoncortes](https://www.linkedin.com/in/elionelsoncortes/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
