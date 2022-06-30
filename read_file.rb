@@ -45,8 +45,7 @@ class Read_File
 
     def create_rentals
         @rentals.each do |rent|
-            puts rent
-            # @data.rentals << Rental.new(rent['date'], @books[rent['book_number']], @persons[rent['person_number']])
+           @data.rentals << Rental.new(rent['date'], @data.books[rent['book_number']], @data.persons[rent['person_number']])
         end
     end 
 end
