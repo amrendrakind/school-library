@@ -87,8 +87,6 @@ class App
     person_number = gets.chomp.to_i
     print 'Date: '
     date = gets.chomp
-    puts @data.books[book_number]
-    puts @data.persons[person_number]
     @data.rentals << Rental.new(date, @data.books[book_number], @data.persons[person_number])
     @writer_file.rentals(date, book_number, person_number)
     puts "Rental created successfully \n\n"
