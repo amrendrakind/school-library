@@ -50,3 +50,17 @@ describe 'Teacher Tests' do
   end
   end
 end
+
+describe 'Person Tests' do
+  context 'Create Object' do
+    it 'Person has the correct Info' do
+      name='Elio Cortes'
+      age= 45
+      classroom = 'Microverse'
+      parent_permission = true
+      person=Person.new(age, name, parent_permission)
+      expect(person.name).to eq(name)
+      expect(person.age).to eq(age)
+  end
+  end
+end
