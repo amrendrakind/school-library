@@ -62,4 +62,23 @@ describe 'Person Tests' do
       expect(person.age).to eq(age)
     end
   end
+
+  context 'Check can_use_services? method' do
+    it 'Person has can use service.' do
+      name = 'Elio Cortes'
+      age = 45
+      parent_permission = true
+      person = Person.new(age, name, parent_permission)
+      expect(person.can_use_services?).to eq(true)
+    end
+
+    it 'Person has can use service.' do
+      name = 'Amrendra K'
+      age = 15
+      parent_permission = false
+      person = Person.new(age, name, parent_permission)
+      expect(person.can_use_services?).to eq(false)
+    end
+  end
+
 end
