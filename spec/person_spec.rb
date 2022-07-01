@@ -80,5 +80,4 @@ describe 'Person Tests' do
       expect(person.can_use_services?).to eq(false)
     end
   end
-
 end
