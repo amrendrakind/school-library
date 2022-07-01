@@ -34,6 +34,8 @@ Move into project directory
 
 >Run following command
 
+`gem install rspec`
+
 `rspec --format documentation` or/and
 
 `rspec spec`
