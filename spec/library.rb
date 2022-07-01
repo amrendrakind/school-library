@@ -51,10 +51,8 @@ class Library
     @files.rentals(date, book_number, person_number)
   end
 
-  # each_with_index { |book, index|
   def get_rental(book_number)
     @data.rentals.each_with_index do |rental, index|
-      # puts rental.book
       return rental.book if index == book_number
     end
   end
