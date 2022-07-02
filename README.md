@@ -30,6 +30,15 @@ Move into project directory
 
 `ruby main.rb`
 
+## Available Scripts to Run Test cases
+
+>Run following command
+
+`gem install rspec`
+
+`rspec --format documentation` or/and
+
+`rspec spec`
 
 ## Author
 
